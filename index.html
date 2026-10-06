@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo de Séries</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h1>Catálogo de Séries</h1>
-  <p class="subtitulo">API TVmaze</p>
+  <div class="titulo-flutuante">
+    <h1>Catálogo de <i><u>Atores</u></i></h1>
+    <h3 class="subtitulo">Site 100% original, 100% de certeza</h3>
 
-  <div class="controles">
-    <input type="text" class="busca" placeholder="Buscar por título..." oninput="aplicarFiltros()">
-    <select class="select-genero" onchange="aplicarFiltros()">
-      <option value="todos">Todos os gêneros</option>
-      <option value="Ação">Ação</option>
-      <option value="Anime">Anime</option>
-      <option value="Aventura">Aventura</option>
-      <option value="Comédia">Comédia</option>
-      <option value="Drama">Drama</option>
-      <option value="Ficção Científica">Ficção Científica</option>
-      <option value="Mistério">Mistério</option>
-      <option value="Natureza">Natureza</option>
-      <option value="Terror">Terror</option>
-    </select>
+    <div class="controles">
+      <input type="text" class="busca" placeholder="Buscar por país..." oninput="aplicarFiltros()">
+      <select class="select-pais" onchange="aplicarFiltros()">
+        <option value="todos">Todos os países</option>
+        <option value="Belgium">Bélgica</option>
+        <option value="Canada">Canadá</option>
+        <option value="Chile">Chile</option>
+        <option value="Korea, Republic of">Coreia do Sul</option>
+        <option value="Spain">Espanha</option>
+        <option value="United States">Estados Unidos</option>
+        <option value="Ireland">Irlanda</option>
+        <option value="Israel">Israel</option>
+        <option value="New Zealand">Nova Zelândia</option>
+        <option value="United Kingdom">Reino Unido</option>
+        <option value="Romania">Romênia</option>
+
+      </select>
+    </div>
+
+    <p class="contador"></p>
   </div>
 
-  <p class="contador"></p>
+  <div class="grid-atores"></div>
 
-  <div class="grid-series"></div>
-
-  <script src="series.js"></script>
+  <script src="dados.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

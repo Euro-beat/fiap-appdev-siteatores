@@ -1,102 +1,108 @@
-/* * seleciona TODOS os elementos da página (seletor universal, visto na Aula 3) */
 * {
-  box-sizing: border-box; /* box-sizing: border-box — visto na Aula 3 (padding/border não somam à largura) */
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;                        /* margin — visto na Aula 2 */
-  font-family: Arial, sans-serif;   /* font-family — visto na Aula 2 */
-  background-color: #14141f;        /* background-color — visto na Aula 2 */
-  color: #f2f2f2;                   /* color — visto na Aula 2 */
-  padding: 24px;                    /* padding — visto na Aula 2/3 (box model) */
+  margin: 0;
+  font-family: "Comic Sans MS";
+  /* <3 Comic Sans MS */
+  background-color: #14141f;
+  color: #f2f2f2;
+  padding: 0px 24px 24px 24px;
+  /* todos menos em cima, já que vai to titulo-flutuante */
 }
 
-h1 {
-  margin: 0 0 4px 0; /* margin com 4 valores (topo direita baixo esquerda) — mesma propriedade da Aula 2, só com mais valores */
+.titulo-flutuante {
+  position: sticky;
+  top: 0;
+  background-color: #14141f;
+  z-index: 999;
+  padding-top: 24px;
+  padding-bottom: 20px;
+}
+
+.titulo-flutuante h1 {
+  margin: 0 0 4px 0;
+  font-size: 40px;
+  text-align: center;
 }
 
 .subtitulo {
-  color: #a0a0b0;      /* color — visto na Aula 2 */
-  margin: 0 0 24px 0;  /* margin — visto na Aula 2 */
+  color: #a0a0b0;
+  margin: 0 0 24px 0;
+  text-align: center;
 }
 
-/* .controles agrupa a busca e o select numa linha.
-   Aqui eu ia usar Flexbox, mas Flexbox NÃO foi dado nessa turma —
-   troquei por Grid (Aula 3), que já é conhecido. */
 .controles {
-  display: grid;                     /* display: grid — visto na Aula 3 */
-  grid-template-columns: 1fr auto;   /* grid-template-columns — visto na Aula 3.
-                                         1fr = a busca ocupa o espaço que sobrar;
-                                         auto = o select fica do tamanho do próprio conteúdo */
-  gap: 12px;                         /* gap — visto na Aula 3 (Grid) */
-  margin-bottom: 8px;                /* margin-bottom — visto na Aula 2 */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
-/* seletor agrupado (vírgula): aplica as MESMAS regras pra dois elementos de uma vez.
-   É a mesma ideia de seletores da Aula 3, só que listando mais de um. */
 .busca,
-.select-genero {
-  font-size: 16px;                /* font-size — visto na Aula 2 */
-  padding: 10px 14px;             /* padding com 2 valores (vertical horizontal) — visto na Aula 2/3 */
-  border-radius: 6px;             /* border-radius — visto na Aula 3 (cardápio com cantos arredondados) */
-  border: 1px solid #3a3a4a;      /* border — visto na Aula 2/3 */
-  background-color: #1f1f2e;      /* background-color — visto na Aula 2 */
-  color: #f2f2f2;                 /* color — visto na Aula 2 */
+.select-pais {
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #3a3a4a;
+  background-color: #1f1f2e;
+  color: #f2f2f2;
 }
 
 .busca {
-  min-width: 220px; /* min-width — AINDA NÃO VISTO. Garante que a busca não fique menor que 220px, mesmo com pouco espaço no grid */
+  min-width: 220px;
 }
 
 .contador {
-  color: #a0a0b0;      /* color — visto na Aula 2 */
-  margin: 0 0 20px 0;  /* margin — visto na Aula 2 */
+  color: #a0a0b0;
+  margin-bottom: 0px;
+  /* retirado a margem daqui e colado no titulo-flutuante */
 }
 
-.grid-series {
-  display: grid;                                             /* display: grid — visto na Aula 3 */
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); /* repeat() e minmax() — visto na Aula 3 (mesmo padrão do cardápio) */
-  gap: 20px;                                                 /* gap — visto na Aula 3 */
+.grid-atores {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
 }
 
-.serie {
-  background-color: #1f1f2e;             /* background-color — visto na Aula 2 */
-  border-radius: 8px;                    /* border-radius — visto na Aula 3 */
-  overflow: hidden;                      /* overflow: hidden — AINDA NÃO VISTO. Corta o que passar dos cantos arredondados (a imagem, por exemplo) */
-  transition: transform 0.15s ease;      /* transition — AINDA NÃO VISTO (fica pra aula de animações). Deixa o efeito abaixo suave em vez de instantâneo */
+.ator {
+  background-color: #1f1f2e;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.15s ease;
+  text-align: center;
 }
 
-.serie:hover {
-  transform: translateY(-4px); /* transform — AINDA NÃO VISTO (fica pra aula de animações). Move o card 4px pra cima ao passar o mouse */
+.ator:hover {
+  transform: translateY(-4px);
 }
 
-.serie img {
-  width: 100%;              /* width — visto na Aula 3 */
-  display: block;           /* display: block — visto na Aula 3 (tira o espacinho extra que imagem tem por padrão) */
-  aspect-ratio: 2 / 3;      /* aspect-ratio — AINDA NÃO VISTO. Mantém a proporção do pôster (2 de largura pra 3 de altura) mesmo antes de carregar */
-  object-fit: cover;        /* object-fit — AINDA NÃO VISTO. Preenche o espaço sem esticar/distorcer a imagem */
+.ator img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
 }
 
-.serie .info {
-  padding: 10px 12px 14px 12px; /* padding com 4 valores — visto na Aula 2/3 */
+.ator .info {
+  padding: 10px 12px 14px 12px;
 }
 
-.serie h2 {
-  font-size: 15px;      /* font-size — visto na Aula 2 */
-  margin: 0 0 6px 0;    /* margin — visto na Aula 2 */
-  line-height: 1.25;    /* line-height — AINDA NÃO VISTO. Controla o espaço entre linhas, útil quando o título quebra em 2 linhas */
+.ator h2 {
+  font-size: 15px;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
 }
 
-.serie p {
-  font-size: 13px;   /* font-size — visto na Aula 2 */
-  color: #a0a0b0;    /* color — visto na Aula 2 */
-  margin: 0;         /* margin — visto na Aula 2 */
+.ator p {
+  font-size: 13px;
+  color: #a0a0b0;
+  margin: 0;
 }
 
-/* @media — visto na Aula 3 (responsividade).
-   Em telas menores que 600px, os controles empilham em vez de ficar em 3 colunas. */
 @media (max-width: 600px) {
   .controles {
-    grid-template-columns: 1fr; /* grid-template-columns — visto na Aula 3 */
+    grid-template-columns: 1fr;
   }
 }
