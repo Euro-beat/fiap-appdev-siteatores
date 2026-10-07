@@ -17,8 +17,8 @@ body {
   top: 0;
   background-color: #14141f;
   z-index: 999;
-  padding-top: 24px;
-  padding-bottom: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .titulo-flutuante h1 {
